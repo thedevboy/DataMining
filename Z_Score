@@ -1,0 +1,25 @@
+# ALWIN JOSEPH
+
+# import statements
+import statistics
+
+import numpy as np
+import pandas as pd
+
+# reading the file
+filename = input("Enter the file Name (filename.csv):")
+data = pd.read_csv(filename)
+col_name = input("Enter the column name :")
+col_1 = data[col_name]
+array = np.array(col_1)
+
+m = statistics.mean(array)
+sd = statistics.stdev(array)
+
+i = 0
+for val in array:
+    v = float((val - m) / sd)
+    array[i] = v
+    i = i + 1
+
+print(array)
